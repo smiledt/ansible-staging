@@ -1,0 +1,19 @@
+---
+# defaults file for vmware_deploy
+
+vsphere_host: 
+vsphere_user: 
+vsphere_datacenter: Lab
+vsphere_folder: /Dev
+guest_network: prod
+guest_netmask: 255.255.255.0
+guest_gateway: 172.16.1.1
+guest_dns_server: 172.16.1.2
+guest_domain_name: plumbus.lab
+guest_id: ubuntu64Guest
+guest_memory: 1024
+guest_vcpu: 1
+guest_template: Basic Ubuntu 18.04.2
+hdd_gb: 32
+hdd_type: thin
+vsphere_datastore: Dev RAID

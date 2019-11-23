@@ -1,0 +1,7 @@
+# Run the kerberos domain join role as ansible
+- name: Kerberos domain authentication
+  hosts: deploy
+  become: true
+  roles: 
+  - role: krb5_user
+    kerberos_user_password: "{{ smiledt_pass }}"

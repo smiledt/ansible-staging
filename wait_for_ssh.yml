@@ -1,0 +1,9 @@
+- name: Wait for port 22 to be open 
+  hosts: deploy
+  gather_facts: false
+  tasks:
+  - wait_for: 
+      host: '{{ (ansible_ssh_host|default(ansible_host))|default(inventory_hostname) }}'
+      port: 22
+      delay: 10
+    connection: local

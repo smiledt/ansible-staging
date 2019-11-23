@@ -1,0 +1,13 @@
+---
+# Runs a basic staging playbook on new hosts prepared by provision_vms.yml
+
+- name: Stage the new hosts
+  hosts: deploy
+  become: true
+  roles:
+  - role: stage_ubuntu
+    standard_user_name: "{{ std_user }}"
+  - role: file_client
+    nfs_server_fqdn: "{{ unraid_server }}"
+    nfs_server_mount: "{{ storage_mount }}"
+    local_nfs_mount: "{{ local_storage_mount }}"

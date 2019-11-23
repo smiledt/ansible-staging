@@ -1,0 +1,5 @@
+# Update/upgrade all packages in deploy
+- hosts: deploy
+  become: true
+  roles: 
+  - linux_update

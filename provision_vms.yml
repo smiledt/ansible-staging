@@ -1,0 +1,15 @@
+# First, run the provisioning playbook as smiledt
+- name: Provision new host(s)
+  hosts: control
+# gather_facts: false
+  remote_user: "{{ provision_user }}"
+  become: true
+  become_user: root
+  vars: # These variables are needed to connect to the new virtual machine(s)
+    ansible_become_pass: "{{ smiledt_pass }}"
+    ansible_ssh_pass: "{{ smiledt_pass }}"
+  roles:
+  - role: provision_vm
+    management_user_name: "{{ mgmt_user }}"
+    management_user_password: "{{ mgmt_pass }}"
+    management_public_key: "{{ mgmt_key }}"

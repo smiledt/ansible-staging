@@ -1,0 +1,5 @@
+---
+# defaults file for provisioning_ubuntu
+management_user:
+management_pass: 
+management_public_key:
