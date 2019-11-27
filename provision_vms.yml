@@ -4,8 +4,8 @@
 #  remote_user: "{{ provision_user }}"
   become: true
 #  become_user: root
-#  vars: # These variables are needed to connect to the new virtual machine(s)
-#    ansible_become_pass: "{{ provision_pass }}"
+  vars: # These variables are needed to connect to the new virtual machine(s)
+    ansible_become_pass: "{{ provision_pass }}"
 #    ansible_ssh_pass: "{{ provision_pass }}"
   roles:
   - role: provision_vm
