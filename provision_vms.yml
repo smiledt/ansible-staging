@@ -1,12 +1,12 @@
 # First, run the provisioning playbook as the standard user
 - name: Provision new host(s)
   hosts: deploy
-  remote_user: "{{ provision_user }}"
+#  remote_user: "{{ provision_user }}"
   become: true
-  become_user: root
-  vars: # These variables are needed to connect to the new virtual machine(s)
-    ansible_become_pass: "{{ provision_pass }}"
-    ansible_ssh_pass: "{{ provision_pass }}"
+#  become_user: root
+#  vars: # These variables are needed to connect to the new virtual machine(s)
+#    ansible_become_pass: "{{ provision_pass }}"
+#    ansible_ssh_pass: "{{ provision_pass }}"
   roles:
   - role: provision_vm
     management_user: "{{ mgmt_user }}"
