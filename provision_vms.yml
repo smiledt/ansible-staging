@@ -1,6 +1,6 @@
 # First, run the provisioning playbook as the standard user
 - name: Provision new host(s)
-  hosts: control
+  hosts: deploy
   remote_user: "{{ provision_user }}"
   become: true
   become_user: root
