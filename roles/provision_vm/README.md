@@ -9,7 +9,9 @@
 
 ## About
 
-> your description
+> This role provisions a virtual machine for management by ansible in my infrastructure. It adds a management user with a specified password, via variables, then adds that management user to the sudoers file. Finally, it adds the public SSH key for the management user to this account. 
+>
+> Note: I have commented out the remote_user, become_user, and other variables in the staging playbook for this role currently. This role needs to be passed a ansible_become_pass, ansible_ssh_pass, and these other variables either via the command line, uncommenting these lines in the playbook, or AWX/Ansible Tower.
 
 [Back to table of contents](#table-of-contents)
 
@@ -69,6 +71,6 @@ license (GPLv2, CC-BY, etc)
 
 ## Author
 
-your name
+Derek Smiley
 
 [Back to table of contents](#table-of-contents)
