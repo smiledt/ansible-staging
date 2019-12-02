@@ -1,8 +1,6 @@
 ---
 # defaults file for vmware_deploy
 
-vsphere_host: 
-vsphere_user: 
 vsphere_datacenter: Lab
 vsphere_folder: /Dev
 guest_network: prod

@@ -1,2 +1,4 @@
 ---
 # vars file for vmware_deploy
+vsphere_host: 
+vsphere_user: 

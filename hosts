@@ -1,3 +1,14 @@
+[domain_servers]
+dc01
+[windows]
+dc01
+[windows:vars]
+# varables that will apply to all windows hosts
+ansible_user=smiledt
+ansible_password="{{ smiledt_pass }}"
+ansible_connection=winrm
+ansible_winrm_server_cert_validation=ignore
+
 [control]
 localhost ansible_python_interpreter=auto ansible_connection=local
 

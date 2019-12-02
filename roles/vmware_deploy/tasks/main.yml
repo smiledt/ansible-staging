@@ -10,7 +10,7 @@
     var: guest_custom_ip
   tags: [ 'debug' ]
   
-# Create a VM from a template with DHCP
+# Create a VM from a template with DHCP - CURRENTLY DOES NOT WORK
 - name: Create the VM with DHCP
   vmware_guest:
     hostname: '{{ vsphere_host }}'
@@ -86,31 +86,6 @@
   delegate_to: localhost
   when: guest_custom_ip is defined
 
-- name: Backup ansible hosts file
-  copy: 
-    src: dev
-    dest: /mnt/storage/tmp/backup/dev.{{ creationdate_dash }}
-  delegate_to: localhost
-  notify: Comment hosts backup
-
-#- name: Remove host from ansible hosts file
-#  lineinfile: 
-#    dest: dev
-#    state: absent
-#    regexp: "^{{ item }}"
-#  with_items: "{{ play_hosts }}"
-#  run_once: true
-#  delegate_to: localhost
-
-#- name: Add hosts to ansible hosts file in staging group
-#  lineinfile:
-#    dest: dev
-#    insertafter: '^\[staging\]'
-#    line: '{{ item }}'
-#  with_items: '{{play_hosts}}'
-#  run_once: true
-#  delegate_to: localhost
-
 - name: Add DNS records for new STATIC vms
   win_dns_record:
     name: "{{ inventory_hostname }}"
@@ -120,17 +95,3 @@
     state: present
   when: guest_custom_ip is defined
   delegate_to: dc01
-
-#- name: Remove stale hosts from known_hosts
-#  known_hosts:
-#    path: .ssh/known_hosts
-#    name: "{{ inventory_hostname }}"
-#    state: absent
-#  delegate_to: localhost
-
-#- name: Add hosts back to known_hosts
-#  known_hosts:
-#    path: .ssh/known_hosts
-#    name: "{{ inventory_hostname }}"
-#    state: present
-#  delegate_to: localhost
