@@ -1,0 +1,10 @@
+---
+# tasks file for linux_update
+- name: Update apt cache for Ubuntu hosts if necessary, then upgrade all packages
+  when: ansible_distribution == 'Ubuntu'
+  apt:
+    update_cache: yes
+    cache_valid_time: 86400
+    name: "*"
+    state: latest
+  tags: [ 'packages' ]
