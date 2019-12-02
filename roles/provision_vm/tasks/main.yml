@@ -17,16 +17,7 @@
               line="{{ management_user }} ALL=(ALL) NOPASSWD:ALL"
   tags: [ 'configure' ]
 
-
-#- name: Set authorized SSH key for {{ management_user }}
-#  authorized_key: 
-#    user: ansible 
-#    state: present
-#    key: "{{ lookup('file', '{{ management_public_key }}') }}"
-#    exclusive: yes
-#  tags: [ 'configure' ]
-
-- name: Set authorized sSH key for {{ management_user }}
+- name: Set authorized SSH key for {{ management_user }}
   authorized_key: 
     user: ansible
     state: present 

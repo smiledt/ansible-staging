@@ -1,0 +1,30 @@
+---
+# tasks file for file_client
+
+- name: Install NFS client software
+  apt: 
+    name: ['nfs-common']
+    state: present
+    update_cache: yes
+    cache_valid_time: 86400
+  tags: [ 'packages' ]
+
+- name: Add Ansible comment to /etc/fstab
+  lineinfile:
+    dest: /etc/fstab
+    backup: yes
+    state: present
+    line: "#------------------ Ansible DO NOT EDIT PAST HERE ----------------"
+    regexp: "^#------------------ Ansible"
+  tags: [ 'configure' ]
+
+
+- name: Add the NAS mountpoint {{ local_nfs_mount }} to /etc/fstab AFTER THE ANSIBLE COMMENT
+  lineinfile: 
+    dest: /etc/fstab
+    backup: yes
+    state: present
+    line: "{{ nfs_server_fqdn }}:{{ nfs_server_mount }} {{ local_nfs_mount }} nfs rsize=8192,wsize=8192,timeo=14,intr"
+    regexp: "^{{ nfs_server_fqdn }}:{{ nfs_server_mount }}"
+    insertafter: "#------------------ Ansible DO NOT EDIT PAST HERE ----------------"
+  tags: [ 'configure' ]

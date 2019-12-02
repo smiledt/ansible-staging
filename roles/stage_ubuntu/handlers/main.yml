@@ -1,5 +1,0 @@
----
-# handlers file for ubuntu_startup
-
-- name: Restart network
-  service: name=network state=restarted

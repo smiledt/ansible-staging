@@ -1,0 +1,8 @@
+---
+defaults:
+  local_nfs_mount:
+    help: TODO.
+  nfs_server_fqdn:
+    help: TODO.
+  nfs_server_mount:
+    help: TODO.

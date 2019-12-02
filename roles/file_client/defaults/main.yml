@@ -1,0 +1,5 @@
+---
+# defaults file for file_client
+nfs_server_fqdn: 
+nfs_server_mount: 
+local_nfs_mount: 
