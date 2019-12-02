@@ -1,0 +1,11 @@
+---
+# defaults file for krb5_user
+
+# Default domain admin password 
+kerberos_user_password: 
+krb5_default_realm: 
+krb5_domain_controller: 
+realm_domain: 
+kerberos_user: 
+realm_ad_ou: 
+realm_domain_lc: 
