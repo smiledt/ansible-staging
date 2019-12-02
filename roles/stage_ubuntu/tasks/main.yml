@@ -1,0 +1,18 @@
+---
+# tasks file for ubuntu_startup
+
+- name: Install basic Ubuntu tools
+  apt: 
+    name: ['tree', 'aptitude', 'htop']
+    state: present
+    update_cache: yes
+
+  
+- name: Set authorized SSH key for user {{ standard_user_name }}
+  authorized_key: 
+    user: "{{ standard_user_name }}"
+    state: present
+    key: "{{ lookup('file', '{{ item }}') }}"
+  with_items:
+    - "{{ user_keys }}"
+

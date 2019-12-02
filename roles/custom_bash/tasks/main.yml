@@ -1,0 +1,11 @@
+---
+# tasks file for custom_bash
+
+- name: "Adding bashrc"
+  copy: src=bash.bashrc dest=/etc/bash.bashrc owner=root group=root mode=0644
+
+- name: "Removing user bashrc"
+  shell: creates=/home/{{ standard_user }}/.bashrc_backup mv /home/{{ standard_user }}/.bashrc /home/{{ standard_user }}/.bashrc_backup
+
+- name: "Removing root's bashrc"
+  shell: creates=/root/.bashrc_backup mv /root/.bashrc /root/.bashrc_backup    

@@ -1,0 +1,7 @@
+---
+# Runs the bashrc role to copy the customized bash file to the local users
+
+- name: Customize Bash
+  hosts: deploy
+  roles:
+  - role: custom_bash
