@@ -96,7 +96,7 @@
   command: cp -f /etc/sudoers /etc/sudoers.bak
 
 - name: Add domain admins group to sudoers
-  lineinfile: dest=/etc/sudoers.tmp state=present line='%ubuntu\ admins ALL=(ALL:ALL) ALL' regexp='^%domain'
+  lineinfile: dest=/etc/sudoers.tmp state=present line='%ubuntu\ admins ALL=(ALL:ALL) ALL' regexp='^%ubuntu'
 
 - name: Final sudoers file check
   shell: visudo -q -c -f /etc/sudoers.tmp && cp -f /etc/sudoers.tmp /etc/sudoers
