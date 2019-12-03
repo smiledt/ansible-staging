@@ -9,7 +9,9 @@
 
 ## About
 
-> your description
+> This role joins my new virtual machines to my domain. 
+>
+> Note: This role expects quite a few variables to be passed through, either via the command line, awx, or a variable file. See the undefined variables below. 
 
 [Back to table of contents](#table-of-contents)
 
@@ -71,6 +73,7 @@ license (GPL-2.0-or-later, MIT, etc)
 
 ## Author
 
-your name
+Derek Smiley
+Note: I am not claiming this to be original work, I got some of it from an ansible-galaxy role and other online resources.
 
 [Back to table of contents](#table-of-contents)

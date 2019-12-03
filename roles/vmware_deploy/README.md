@@ -9,7 +9,9 @@
 
 ## About
 
-> your description
+> This role creates a new virtual machine using my ESXi server and the vmware_guest module. The defaults are currently set up for my infrastructure, but can be overriden for application specific uses. Also, many of these variables can be overriden at the host level for changes in configurations between hosts. 
+>
+> Note: This role expects the variables "esxi_host", "vsphere_host", "vsphere_password", and "vshere_user" to be passed, either via the command line or via AWX. Defaults can also be used. 
 
 [Back to table of contents](#table-of-contents)
 
@@ -142,6 +144,7 @@ license (GPL-2.0-or-later, MIT, etc)
 
 ## Author
 
-your name
+Derek Smiley
+Not claiming as my original work, got part from an ansible-galaxy role and other websites
 
 [Back to table of contents](#table-of-contents)
