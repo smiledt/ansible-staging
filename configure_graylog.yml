@@ -1,0 +1,8 @@
+---
+# Configures RSyslog to send logs to graylog using the graylog_sender role
+
+- name: Configure graylog log sender
+  hosts: deploy
+  become: true
+  roles: 
+  - graylog_sender

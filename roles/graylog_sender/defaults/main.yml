@@ -1,0 +1,6 @@
+---
+# defaults file for graylog_sender
+
+graylog_server: 
+graylog_port_tcp: ~ # Only define ONE of these port variables
+graylog_port_udp: ~ # Only define ONE of these port variables

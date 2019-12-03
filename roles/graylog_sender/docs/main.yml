@@ -1,0 +1,8 @@
+---
+defaults:
+  graylog_port_tcp:
+    help: TODO.
+  graylog_port_udp:
+    help: TODO.
+  graylog_server:
+    help: TODO.

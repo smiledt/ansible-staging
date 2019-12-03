@@ -1,0 +1,27 @@
+---
+# tasks file for graylog_sender
+
+- name: Debug the port
+  debug:
+    msg: "{{ graylog_port_tcp }}"
+
+- name: Ensure that only one of the two port variables is defined
+  fail:
+    msg: Please define only one of the two port variables
+  when: ((graylog_port_tcp is defined) and (graylog_port_tcp is not none)) and ((graylog_port_udp is defined) and (graylog_port_udp is not none)) 
+
+- name: Template out the graylog sender configuration file using the TCP port
+  template: 
+    src: graylog-sender_tcp.conf.j2
+    dest: /etc/rsyslog.d/graylog-sender.conf
+    force: yes
+  when: graylog_port_tcp is defined and graylog_port_tcp is not none
+  notify: Restart rsyslog
+
+- name: Template out the graylog sender configuration file using the UDP port
+  template: 
+    src: graylog-sender_udp.conf.j2
+    dest: /etc/rsyslog.d/graylog-sender.conf
+    force: yes
+  when: graylog_port_udp is defined and graylog_port_udp is not none
+  notify: Restart rsyslog

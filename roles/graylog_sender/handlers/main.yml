@@ -1,0 +1,7 @@
+---
+# handlers file for graylog_sender
+
+- name: Restart rsyslog
+  service: 
+    name: rsyslog
+    state: restarted
