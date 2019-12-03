@@ -145,6 +145,7 @@ license (GPL-2.0-or-later, MIT, etc)
 ## Author
 
 Derek Smiley
+
 Not claiming as my original work, got part from an ansible-galaxy role and other websites
 
 [Back to table of contents](#table-of-contents)
