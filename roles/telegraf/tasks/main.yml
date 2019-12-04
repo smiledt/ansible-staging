@@ -1,0 +1,30 @@
+---
+# tasks file for telegraf
+
+# The telegraf packages use the same repository as influxdb
+- name: Import InfluxDB GPG signing key
+  apt_key: url=https://repos.influxdata.com/influxdb.key state=present
+  tags: [ 'packages' ]
+
+- name: Add InfluxDB repository
+  apt_repository: repo='deb https://repos.influxdata.com/{{ ansible_distribution|lower }} {{ansible_distribution_release|lower }} stable' state=present
+  tags: [ 'packages' ]
+
+- name: Update repository cache
+  apt:
+    update_cache: yes
+
+- name: Install Telegraf packages 
+  apt: name=telegraf state=present
+  tags: [ 'packages' ]
+
+- name: Ensure Telegraf started
+  service: name=telegraf state=started enabled=true
+  tags: [ 'service' ]
+
+- name: Template out Telegraf configuration file
+  template:
+    src: telegraf.conf.j2
+    dest: /etc/telegraf/telegraf.conf
+    force: yes
+  notify: Restart telegraf

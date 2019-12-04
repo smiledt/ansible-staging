@@ -1,0 +1,12 @@
+---
+defaults:
+  influx_std_pass:
+    help: TODO.
+  influx_std_user:
+    help: TODO.
+  influxdb_database:
+    help: TODO.
+  influxdb_ip:
+    help: TODO.
+  influxdb_port:
+    help: TODO.

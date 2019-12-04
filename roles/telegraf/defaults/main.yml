@@ -1,0 +1,9 @@
+---
+# defaults file for telegraf
+
+influxdb_ip: 
+influxdb_port: 8086
+influxdb_database: 
+
+influx_std_user: 
+influx_std_pass: 

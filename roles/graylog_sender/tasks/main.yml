@@ -1,10 +1,6 @@
 ---
 # tasks file for graylog_sender
 
-- name: Debug the port
-  debug:
-    msg: "{{ graylog_port_tcp }}"
-
 - name: Ensure that only one of the two port variables is defined
   fail:
     msg: Please define only one of the two port variables
