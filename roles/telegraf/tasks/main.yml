@@ -18,13 +18,21 @@
   apt: name=telegraf state=present
   tags: [ 'packages' ]
 
+- name: Copy Telegraf configuration file
+  copy:
+    src: telegraf.conf
+    dest: /etc/telegraf/telegraf.conf
+    force: yes
+    backup: yes
+  notify: Restart telegraf
+
+- name: Template out influxdb_sender configuration file
+  template:
+    src: influxdb_sender.conf.j2
+    dest: /etc/telegraf/telegrafd/influxdb_sender.conf
+    force: yes
+  notify: Restart telegraf
+
 - name: Ensure Telegraf started
   service: name=telegraf state=started enabled=true
   tags: [ 'service' ]
-
-- name: Template out Telegraf configuration file
-  template:
-    src: telegraf.conf.j2
-    dest: /etc/telegraf/telegraf.conf
-    force: yes
-  notify: Restart telegraf
