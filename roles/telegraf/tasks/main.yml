@@ -29,7 +29,7 @@
 - name: Template out influxdb_sender configuration file
   template:
     src: influxdb_sender.conf.j2
-    dest: /etc/telegraf/telegrafd/influxdb_sender.conf
+    dest: /etc/telegraf/telegraf.d/influxdb_sender.conf
     force: yes
   notify: Restart telegraf
 
