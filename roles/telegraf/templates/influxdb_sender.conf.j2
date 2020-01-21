@@ -1,6 +1,6 @@
 [[outputs.influxdb]]
-  urls = ["http://{{ influxdb_ip }}:{{ influxdb_port }}"]
-database = "{{ influxdb_database }}"
+  urls = ["http://{{ influx_ip }}:{{ influxdb_port }}"]
+  database = "{{ influx_database }}"
   ## Timeout for HTTP messages.
   timeout = "5s"
 
