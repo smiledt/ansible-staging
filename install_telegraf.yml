@@ -1,0 +1,8 @@
+---
+# Install_telegraf playbook for the telegraf roles
+- name: Install and configure telegraf on staging hosts
+  hosts: deploy
+  become: true
+  roles:
+    - telegraf
+    
